@@ -6,6 +6,12 @@ import router from './router'
 
 Vue.config.productionTip = false
 
+//引进axios有ajax只用
+import axios from 'axios'
+import Element from 'element-ui'
+
+Vue.use(Element)
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
