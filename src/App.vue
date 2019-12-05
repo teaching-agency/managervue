@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <!--去除不要的原vue图片-->
+    <!--<img src="./assets/logo.png">-->
     <router-view/>
   </div>
 </template>

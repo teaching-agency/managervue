@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+
+/*自components文件夹下的vue文件为父级写于此处其余写于内部*/
+import loginPage from '@/components/page/login/loginpage'
 
 Vue.use(Router)
 
@@ -8,8 +10,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'loginPage',
+      component: loginPage
     }
   ]
 })

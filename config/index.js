@@ -10,11 +10,30 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/api': {  //代理地址
+        //target: 'http://192.168.214.1:8091/',  //需要代理的地址
+        target: 'localhost',  //现在本地试用
+        changeOrigin: true,  //是否跨域
+        secure: false,
+        pathRewrite: {
+          '^/api': '/'   //本身的接口地址没有 '/api' 这种通用前缀，所以要rewrite，如果本身有则去掉    (若是使用axios去掉“/”这里面的斜杠)
+        }
+      },
+      //用于生产环境代理
+      '/proApi': {  //代理地址
+        target: 'http://192.168.214.1:8091/',  //需要代理的地址
+        changeOrigin: true,  //是否跨域
+        secure: false,
+        pathRewrite: {
+          '^/proApi': '/'   //本身的接口地址没有 '/api' 这种通用前缀，所以要rewrite，如果本身有则去掉    (若是使用axios去掉“/”这里面的斜杠)
+        }
+      }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
-    port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
+    port: 10001, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
     errorOverlay: true,
     notifyOnErrors: true,
