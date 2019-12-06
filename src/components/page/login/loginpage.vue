@@ -61,7 +61,7 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   @import "../../common/util/common.css";
 
 </style>
