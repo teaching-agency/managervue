@@ -10,14 +10,6 @@ import Element from 'element-ui'
 
 Vue.use(Element);
 
-//全局调用方法
-import {get,post,put,deletePrams,patch} from '@/components/api/http'
-Vue.prototype.$get = get;
-Vue.prototype.$post = post;
-Vue.prototype.$put = put;
-Vue.prototype.$deletePrams = deletePrams;
-Vue.prototype.$patch = patch;
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

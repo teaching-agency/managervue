@@ -5,10 +5,12 @@
 
 import url from './../../url'
 
+import {get,post,put,deletePrams,patch} from './../../http'
+
 export default {
   //登录接口
   loginParameter(userName,userCode){
-    return this.$post(url.login,{
+    return post(url.login,{
       userName:userName,
       userCode:userCode
     })

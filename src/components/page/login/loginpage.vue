@@ -35,10 +35,16 @@
             //严格要求接口方法体只能写传入值的别名，不得通过this等方法指向值
             var userName = "123";
             var userCode = "1";
+            var user = {
+              name:userName,
+              password:userCode
+            };
 
             if(!isDataNull(userName) && !isDataNull(userCode)){
               loginParameter.loginParameter(userName,userCode).then(data => {
                 console.log(data);
+              }).catch(e => {
+                console.log(e)
               })
             }
 
