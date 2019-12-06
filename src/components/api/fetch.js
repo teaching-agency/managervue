@@ -5,7 +5,7 @@
  **/
 
 //引进axios与vue
-import axios, {AxiosInstance as request} from 'axios'
+import axios from 'axios'
 import Vue from 'vue'
 
 //判断线上环境与开发环境
@@ -19,7 +19,7 @@ if(process.env.NODE_ENV === 'development'){
 }
 
 //自定义axios
-const requet = axios.create({
+const request = axios.create({
   baseURL:baseUrl,
   headers:{ 'Content-Type': 'application/json;' },    //请求格式：json
   timeout:30000,                                        //1000ms = 1s
@@ -36,6 +36,7 @@ request.interceptors.request.use(
     let token = localStorage.getItem("token");
     token?config.headers.Authorization=token:null;
     return config;
+    console.log(config,'加载超时');
   },
   error => {
     console.log('加载超时');
