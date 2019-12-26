@@ -7,14 +7,14 @@
     <el-form :rules="loginFormRules" ref="loginForm" :model="loginForm" label-position="right" label-width="auto" show-message>
       <span class="login-title">欢迎登录</span>
       <div style="margin-top: 5px"></div>
-      <el-form-item label="用户名" prop="loginName">
+      <el-form-item label="账号" prop="loginName">
         <el-col :span="22">
-          <el-input type="text" v-model="loginForm.loginName"></el-input>
+          <el-input type="text" v-model="loginForm.loginName" placeholder="请输入手机号/身份证号" ></el-input>
         </el-col>
       </el-form-item>
       <el-form-item label="密码" prop="loginPassword">
         <el-col :span="22">
-          <el-input type="password" v-model="loginForm.loginPassword"></el-input>
+          <el-input type="password" v-model="loginForm.loginPassword" placeholder="请输入密码" ></el-input>
         </el-col>
       </el-form-item>
       <el-form-item>
@@ -27,14 +27,12 @@
 
 <script>
   import loginParameter from "@/components/api/parameter/login/loginparameter"
-  import {isDataNull} from "@/components/common/util/common.js"
     export default {
         name: "loginPage",
         props:[],
         components:{},
         //创建之初调用
         created(){
-          this.login();
         },
         //页面初始之后调用
         mounted(){
@@ -62,16 +60,16 @@
         methods:{
           //登录方法
           loginSubmit(formName) {
+            this.$router.replace("/menu");
             // 为表单绑定验证功能
-            this.$refs[formName].validate((valid) => {
+            /*this.$refs[formName].validate((valid) => {
               if (valid) {
                 // 使用 vue-router 路由到指定页面，该方式称之为编程式导航
-                console.log("to loginSuccess");
-                this.$router.replace("/loginSuccess");
+
               } else {
                 return false;
               }
-            });
+            });*/
           }
         },
         //监听

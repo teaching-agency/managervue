@@ -9,4 +9,10 @@ export default {
   //登录
   login : '/user/login',
 
+  /**
+   * 菜单模块
+   * */
+  //获取菜单
+  getMenu : '/menu/getMenu',
+
 }

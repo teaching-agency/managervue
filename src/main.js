@@ -11,10 +11,13 @@ import 'element-ui/lib/theme-default/index.css'
 
 Vue.use(Element);
 
+import store from './store/store'//引入store
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,//使用store
   components: { App },
   template: '<App/>'
 });
