@@ -1,15 +1,16 @@
 <template>
-  <div>
-    <ul>
+  <div class="container">
+    <!--布局②-->
+    <el-container style="height: 100%" direction="vertical">
+      <el-header>Header{{firstMenus}}</el-header>
       <el-container>
         <el-aside width="200px">Aside</el-aside>
         <el-container>
-          <el-header>Header</el-header>
           <el-main>Main</el-main>
           <el-footer>Footer</el-footer>
         </el-container>
       </el-container>
-    </ul>
+    </el-container>
   </div>
 </template>
 
@@ -45,7 +46,7 @@
         * 'invokePushItems'  //collection.js文件中的actions里的方法，在上面的@click中执行并传入实参])
         * */
 
-        ...mapGetters('menu',{
+        ...mapGetters('menus',{
           firstMenus:'renderMenus'
         }),
     },
@@ -62,37 +63,5 @@
 </script>
 
 <style scoped lang="scss">
-  .el-header, .el-footer {
-    background-color: #B3C0D1;
-    color: #333;
-    text-align: center;
-    line-height: 60px;
-  }
-
-  .el-aside {
-    background-color: #D3DCE6;
-    color: #333;
-    text-align: center;
-    line-height: 200px;
-  }
-
-  .el-main {
-    background-color: #E9EEF3;
-    color: #333;
-    text-align: center;
-    line-height: 160px;
-  }
-
-  body > .el-container {
-    margin-bottom: 40px;
-  }
-
-  .el-container:nth-child(5) .el-aside,
-  .el-container:nth-child(6) .el-aside {
-    line-height: 260px;
-  }
-
-  .el-container:nth-child(7) .el-aside {
-    line-height: 320px;
-  }
+  @import "../../common/util/common";
 </style>

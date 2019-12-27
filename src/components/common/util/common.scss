@@ -17,3 +17,39 @@
   }
 }
 
+/*container模块*/
+/*  布局①*/
+body > .el-container , .container{
+  margin: 0;
+  height: 100%;
+  padding: 0
+}
+.el-container{
+  /*头部与底部*/
+  .el-header, .el-footer {
+    background-color: #B3C0D1;
+    color: #333;
+    text-align: center;
+    line-height: 60px;
+  }
+  /*左部局*/
+  .el-aside {
+    background-color: #D3DCE6;
+    color: #333;
+    text-align: center;
+    line-height: 200px;
+  }
+
+  /*主内容块*/
+  .el-main {
+    background-color: #E9EEF3;
+    color: #333;
+    text-align: center;
+    line-height: 160px;
+  }
+}
+
+/*
+el-container布局撑满有两部分别是（布局①；布局②）
+*/
+

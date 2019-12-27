@@ -14,11 +14,20 @@ export default {
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Microsoft YaHei UI Light";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+/*去除body存在的边距*/
+body{
+  margin: 0;
+  padding: 0;
+}
+/*沾满全屏*/
+html,body,#app{
+  height: 100%;
+  width: 100%;
 }
 </style>
