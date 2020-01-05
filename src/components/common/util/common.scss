@@ -31,6 +31,7 @@ body > .el-container , .container{
     color: #333;
     text-align: center;
     line-height: 60px;
+    padding: 0;
   }
   /*左部局*/
   .el-aside {
@@ -38,6 +39,9 @@ body > .el-container , .container{
     color: #333;
     text-align: center;
     line-height: 200px;
+    .el-menu{
+      height: 100%;
+    }
   }
 
   /*主内容块*/
