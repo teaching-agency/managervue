@@ -61,6 +61,7 @@
           //登录方法
           loginSubmit(formName) {
             this.$router.replace("/menu");
+            this.$store.dispatch('menus/getFirstMenus');
             // 为表单绑定验证功能
             /*this.$refs[formName].validate((valid) => {
               if (valid) {

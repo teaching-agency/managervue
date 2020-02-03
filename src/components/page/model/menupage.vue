@@ -6,16 +6,12 @@
         <el-menu
           :default-active="activeIndex2"
           class="el-menu-demo"
-          mode="horizontal"
+          mode="firstMenus"
           @select="handleSelect"
           background-color="#545c64"
           text-color="#fff"
           active-text-color="#ffd04b">
-          <el-menu-item index="1">客户管理</el-menu-item>
-          <el-menu-item index="2">资源维护</el-menu-item>
-          <el-menu-item index="3">下载中心</el-menu-item>
-          <el-menu-item index="4">个人中心</el-menu-item>
-          <el-menu-item index="5">系统设置</el-menu-item>
+          <el-menu-item index="1">{{this.firstMenus}}</el-menu-item>
         </el-menu>
       </el-header>
       <el-container>
@@ -60,7 +56,7 @@
 </template>
 
 <script>
-  import {mapGetters} from 'vuex'; //先要引入
+  import {mapGetters,mapActions} from 'vuex'; //先要引入
     export default {
       name: "menuPage",
       props:[],
@@ -86,11 +82,6 @@
              isShow:'isShow' //第一个isShow是我自定义的只要对应template里v-if="isShow"就行，
                              //第二个isShow是对应的footerStatus.js里的getters里的isShow
         */
-
-        /*
-        * ...mapActions('collection',[ //collection是指modules文件夹下的collection.js
-        * 'invokePushItems'  //collection.js文件中的actions里的方法，在上面的@click中执行并传入实参])
-        * */
 
         ...mapGetters('menus',{
           firstMenus:'renderMenus'

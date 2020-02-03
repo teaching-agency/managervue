@@ -13,6 +13,6 @@ export default {
    * 菜单模块
    * */
   //获取菜单
-  getMenu : '/menu/getMenu',
+  getMenu : '/sys-menu/page',
 
 }

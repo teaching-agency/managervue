@@ -12,7 +12,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api': {  //代理地址
-        target: 'http://192.168.214.1:8091/',  //需要代理的地址
+        target: 'http://192.168.0.102:9091/',  //需要代理的地址
         //target: 'localhost',  //现在本地试用
         changeOrigin: true,  //是否跨域
         secure: false,
@@ -32,7 +32,7 @@ module.exports = {
     },
 
     // Various Dev Server settings
-    host: '192.168.214.1', // can be overwritten by process.env.HOST
+    host: '192.168.0.102', // can be overwritten by process.env.HOST
     port: 10001, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
     errorOverlay: true,

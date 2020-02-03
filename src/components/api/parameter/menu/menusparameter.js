@@ -10,6 +10,6 @@ import {get,post,put,deletePrams,patch} from './../../http'
 export default {
   //登录接口
   getMenus(){
-    return get(url.getMenu,{})
+    return post(url.getMenu)
   },
 }
