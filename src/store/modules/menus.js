@@ -13,7 +13,8 @@ import menusParameter from './../../components/api/parameter/menu/menusparameter
  */
 const state={
   collects:[],  //初始化一个colects数组
-  firstMenus:[]
+  firstMenus:[],
+  SecondDefaultMenus:[]
 };
 
 //监听state中的值
@@ -24,6 +25,9 @@ const getters={
 
   renderMenus(state){
     return state.firstMenus;
+  },
+  SecondDefaultMenus(state){
+    return state.SecondDefaultMenus;
   }
 };
 
@@ -34,7 +38,10 @@ const mutations={
   },
 
   [types.GET_FIRST_MENUS](state,value){
-    state.firstMenus.push(value);
+    state.firstMenus = value //区分=与push的区别
+  },
+  [types.GET_SECOND_DEFAULT_MENUS](state,value){
+    state.SecondDefaultMenus = value //区分=与push的区别
   }
 };
 
@@ -46,7 +53,15 @@ const actions={
   //获取一级标签
   getFirstMenus(content,value){
     menusParameter.getMenus().then(date=>{
-      content.commit("GET_FIRST_MENUS",date)
+      let SecondMenus = [];
+      for (let i = 0; i < date.records.length; i ++){
+        let menuId = date.records[0].menuId;
+        if(date.records[i].parentId == menuId){
+          SecondMenus.push(date.records[i]);
+        }
+      }
+      content.commit("GET_FIRST_MENUS",date.records);
+      content.commit("GET_SECOND_DEFAULT_MENUS",SecondMenus)
     })
   }
 };
