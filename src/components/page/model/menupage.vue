@@ -12,7 +12,7 @@
           text-color="#fff"
           active-text-color="#ffd04b">
           <!-- 一级菜单 -->
-          <el-menu-item v-for="(item,index) in firstMenus" :index="index.toString()" v-if="item.parentId == null">
+          <el-menu-item v-for="(item,index) in firstMenus" :index="index.toString()" v-if="item.parentId == null" :key="index">
             <template >
               <i :class="item.icon"></i>
               <span >{{item.name}}</span>
@@ -30,7 +30,7 @@
             background-color="#545c64"
             text-color="#fff"
             active-text-color="#ffd04b">
-            <el-menu-item :index="index.toString()" v-for="(item, index) in verticalData">
+            <el-menu-item :index="index.toString()" v-for="(item, index) in verticalData" :key="index">
               <template slot="title">
                 <i :class="item.icon"></i>
                 <span>{{item.name}}</span>
@@ -61,8 +61,7 @@
     data(){
       return{
         horizontalIndex:"0",
-        verticalIndex:"0",
-        //verticalData:[],
+        verticalIndex:"0"
       }
     },
     computed:{
@@ -80,8 +79,7 @@
       ...mapGetters('menus',{
         firstMenus:'renderMenus',
         verticalData:'SecondDefaultMenus'
-      }),
-      /*...mapState({ menus: state => state.menus.firstMenus })*/
+      })
     },
     methods:{
       handleSelect(key, keyPath) {
@@ -93,7 +91,6 @@
         }
       },
       handleOpen(key, keyPath) {
-        debugger
         console.log(key, keyPath);
       },
       handleClose(key, keyPath) {
