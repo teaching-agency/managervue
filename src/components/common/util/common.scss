@@ -51,8 +51,62 @@ body > .el-container , .container{
     text-align: center;
     line-height: 160px;
   }
+  .logoClass{
+    width: 300px;
+    height: 60px;
+    position: absolute;
+    left: 0px
+  }
 }
-
+/*span默認顏色*/
+.spanStatus{
+  text-align: center;
+  cursor: pointer;
+  padding: 0.06rem;
+  display: block;;
+  border: 0.1rem solid #fff;
+  border-radius: 1rem;
+  color: #fff;
+  width: 7rem;
+  height: 2rem;
+  line-height: 2rem;
+}
+/*span移入樣式*/
+.spanStatus:hover{
+  text-align: center;
+  padding: 0.06rem;
+  display: block;
+  border: 0.1rem solid #fff;
+  border-radius: 1rem;
+  color: #fff;
+  background-color: #409EFF;
+  width: 7rem;
+  height: 2rem;
+  line-height: 2rem;
+}
+/*条件搜索左半边*/
+.spanLeftCss{
+  float: left;
+  font-weight: bold;
+  color: #606266;
+  font-size: 0.9rem;
+  padding-right: 0.3rem;
+  padding-left: 0.3rem;
+}
+.spanRightCss{
+  display: block;
+  float: left;
+}
+.spanRightInputCss{
+  display: block;
+  float: left;
+  width: 9rem;
+}
+/*边框线*/
+.borderLine{
+  border-bottom: 1px solid #eee;
+  display: block;
+}
 /*
 el-container布局撑满有两部分别是（布局①；布局②）
 */

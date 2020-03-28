@@ -9,7 +9,15 @@ Vue.config.productionTip = false;
 import Element from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
+/*引入messageBox*/
+import messageBox from './components/common/util/messageBoxValidate'
+Vue.prototype.$MessageBox = messageBox;
+
 Vue.use(Element);
+
+//统一全局变量配置
+import GLOBAL from './components/common/util/global'
+Vue.prototype.$GLOBAL = GLOBAL;
 
 import store from './store/store'//引入store
 

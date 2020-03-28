@@ -55,13 +55,20 @@ const actions={
     menusParameter.getMenus().then(date=>{
       let SecondMenus = [];
       for (let i = 0; i < date.records.length; i ++){
-        let menuId = date.records[0].menuId;
+        let menuId;
+        if(value != undefined){
+          menuId = date.records[Number(value)].menuId;
+        }else {
+          menuId = date.records[0].menuId;
+        }
         if(date.records[i].parentId == menuId){
           SecondMenus.push(date.records[i]);
         }
       }
       content.commit("GET_FIRST_MENUS",date.records);
       content.commit("GET_SECOND_DEFAULT_MENUS",SecondMenus)
+    }).catch(error =>{
+      this.$MessageBox.messageType((this.$GLOBAL.CATCH_API + error),'error')
     })
   }
 };
