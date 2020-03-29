@@ -33,7 +33,7 @@
         <el-button type="primary" plain icon="el-icon-search" style="height: 2.45rem">
           搜索
         </el-button>
-        <el-button type="primary" plain icon="el-icon-circle-plus-outline" style="height: 2.45rem">
+        <el-button type="primary" @click="closeOrOpenUserPage()" plain icon="el-icon-circle-plus-outline" style="height: 2.45rem">
           新增
         </el-button>
       </div>
@@ -44,23 +44,45 @@
       <el-table
         :header-cell-style="{background:'#e9f3ff'}"
         :data="tableData"
+        empty-text="正在加载中..."
         :row-class-name="tableRowClassName"
-        height="465"
+        height="455"
         border
         style="width: 100%;">
-        <el-table-column
-          prop="date"
-          label="日期"
-          width="180">
-        </el-table-column>
+          <el-table-column
+            prop="date"
+            label="日期"
+            width="180">
+            <template slot-scope="scope">
+              <!-- 悬浮提示 -->
+              <el-tooltip>
+                <div slot="content">{{scope.row.date}}</div>
+                <div>{{scope.row.date}}</div>
+              </el-tooltip>
+            </template>
+          </el-table-column>
         <el-table-column
           prop="name"
           label="姓名"
           width="180">
+          <template slot-scope="scope">
+            <!-- 悬浮提示 -->
+            <el-tooltip>
+              <div slot="content">{{scope.row.name}}</div>
+              <div>{{scope.row.name}}</div>
+            </el-tooltip>
+          </template>
         </el-table-column>
         <el-table-column
           prop="address"
           label="地址">
+          <template slot-scope="scope">
+            <!-- 悬浮提示 -->
+            <el-tooltip>
+              <div slot="content">{{scope.row.address}}</div>
+              <div>{{scope.row.address}}</div>
+            </el-tooltip>
+          </template>
         </el-table-column>
         <el-table-column label="操作">
           <template slot-scope="scope">
@@ -75,26 +97,44 @@
         </el-table-column>
       </el-table>
       <!--分页-->
-      <div style="margin-top: 0.84rem;text-align: right;padding-right: 1rem">
-        <el-pagination
-          background
-          layout="prev, pager, next"
-          :total="1000">
-        </el-pagination>
+      <div style="margin-top: 0.7rem;text-align: right;padding-right: 1rem">
+        <!-- 底部分页 -->
+        <div class="pagination">
+          <el-pagination @size-change="handleSizeChange"
+                         @current-change="currentChange"
+                         :current-page="currentPage"
+                         :page-sizes="[10,  30, 50]"
+                         :page-size="10"
+                         layout="total, sizes, prev, pager, next, jumper"
+                         :total="total">
+          </el-pagination>
+          </div>
       </div>
     </div>
+    <!--渲染子页面区域-->
+      <userAddOrEditPage :closeOrOpenFlag = 'userAddOrEditPageFlag' @saveUserInfo="successUserInfo" v-on:closeUserAddOrEditPage="closeOrOpenUserPage"></userAddOrEditPage>
   </div>
 </template>
 
 <script>
+  import userAddOrEditPage from'@/components/page/user/userAddOrEditPage'
     export default {
       name: "userPage",
-      created(){},
+      created(){
+        this.total = 200
+      },
       mounted(){},
+      props:[],
+      components:{
+        userAddOrEditPage
+      },
       data(){
         return{
+          currentPage: 1, //当前页
+          pageRows:10,    //每页显示数
+          total:0,         //数据总条数
+          userAddOrEditPageFlag:false,
           value1: '',
-          value2: '',
           input:"",
           tableData: [{
             date: '2016-05-03',
@@ -136,21 +176,49 @@
             date: '2016-05-07',
             name: '王小虎',
             address: '上海市普陀区金沙江路 1518 弄'
+          },{
+            date: '2016-05-07',
+            name: '王小虎',
+            address: '上海市普陀区金沙江路 1518 弄'
+          },{
+            date: '2016-05-07',
+            name: '王小虎',
+            address: '上海市普陀区金沙江路 1518 弄'
           }]
         }
       },
       methods:{
+        /**页码切换**/
+        currentChange(page) {
+          this.currentPage= page
+          //this.getDistributorList();
+        },
+        /**分页条数**/
+        handleSizeChange(val){
+          this.pageRows = val;
+          //this.getDistributorList();
+        },
+        /**修改**/
         handleEdit(index, row) {
           console.log(index, row);
         },
+        /**删除**/
         handleDelete(index, row) {
           console.log(index, row);
         },
+        /**隔行加色**/
         tableRowClassName({row, rowIndex}) {
           if (rowIndex % 2 ===1) {
             return 'warning-row';
           }
           return '';
+        },
+        /**开关新增/修改页面**/
+        closeOrOpenUserPage(){
+          this.userAddOrEditPageFlag = !this.userAddOrEditPageFlag;
+        },
+        /**子页面成功操作之后，可传值方法**/
+        successUserInfo(value){
         }
       }
     }

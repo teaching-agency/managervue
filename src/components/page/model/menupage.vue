@@ -178,4 +178,119 @@
   .el-menu-item:hover{
     color: #fff !important;
   }
+  /****分页****/
+    .pagination {
+      width: 100%;
+      text-align: right;
+      padding-top: 13px; //分页样式
+      border-top: 1px solid #D9D9D9;
+
+      .el-pagination {
+        text-align: right;
+        padding: 1px 0;
+
+        button,
+        span:not([class*=suffix]) {
+          font-size: 12px;
+          height: 28px;
+          line-height: 28px;
+        }
+
+        .el-input--mini input {
+          height: 28px !important;
+          line-height: 28px !important;
+        }
+
+        .el-select .el-input .el-select__caret {
+          font-size: 12px;
+        }
+
+        .btn-next,
+        .btn-prev {
+          border: 1px solid #0D78ED;
+          border-radius: 4px;
+          width: 28px;
+          padding: 0;
+          text-align: center;
+
+          i {
+            color: #0D78ED;
+          }
+        }
+
+        .btn-next:hover,
+        .btn-prev:hover,
+        .btn-next:active,
+        .btn-prev:active {
+          background: #0D78ED;
+        }
+
+        .btn-next:hover > i,
+        .btn-prev:hover > i,
+        .btn-next:active > i,
+        .btn-prev:active > i {
+          color: #fff;
+        }
+
+        .btn-next:disabled:hover,
+        .btn-prev:disabled:hover,
+        .btn-next:disabled:active,
+        .btn-prev:disabled:active,
+        .btn-next:disabled:hover > i,
+        .btn-prev:disabled:hover > i,
+        .btn-next:disabled:active > i,
+        .btn-prev:disabled:active > i,
+        .btn-next:disabled,
+        .btn-prev:disabled,
+        .btn-next:disabled > i,
+        .btn-prev:disabled > i {
+          color: #c0c4cc;
+          background: #f4f5f7;
+          border-color: #c0c4cc;
+        }
+
+        .el-pager li {
+          min-width: 30px;
+          height: 28px;
+          line-height: 28px;
+          font-size: 12px;
+          padding: 0 4px;
+        }
+
+        .el-pagination__sizes .el-input .el-input__inner {
+          font-size: 12px;
+        }
+
+        .el-pagination__editor.el-input {
+          font-size: 12px;
+          width: 50px;
+          line-height: 28px;
+          padding: 0 2px;
+          margin: 0 2px;
+          height: 28px;
+
+          .el-input__inner {
+            height: 28px;
+            border: #d9d9d9 1px solid;
+          }
+        }
+
+        &.is-background .el-pager li:not(.disabled):hover {
+          color: #0D78ED;
+        }
+
+        &.is-background .el-pager li:not(.disabled).active {
+          background-color: transparent;
+          color: #0D78ED;
+        }
+      }
+
+      .el-pagination.is-background .btn-next.disabled,
+      .el-pagination.is-background .btn-next:disabled,
+      .el-pagination.is-background .btn-prev.disabled,
+      .el-pagination.is-background .btn-prev:disabled,
+      .el-pagination.is-background .el-pager li.disabled {
+        color: #0D78ED;
+      }
+    }
 </style>
