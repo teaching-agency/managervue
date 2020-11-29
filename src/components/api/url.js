@@ -7,7 +7,7 @@ export default {
   * 登录模块
   * */
   //登录
-  login : '/user/login',
+  login : '/sys_company/company/login',
 
   /**
    * 菜单模块

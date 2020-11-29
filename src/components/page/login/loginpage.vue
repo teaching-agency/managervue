@@ -60,16 +60,22 @@
         methods:{
           //登录方法
           loginSubmit(formName) {
-            this.$router.replace("/menuPage");
             // 为表单绑定验证功能
-            /*this.$refs[formName].validate((valid) => {
+            this.$refs[formName].validate((valid) => {
               if (valid) {
                 // 使用 vue-router 路由到指定页面，该方式称之为编程式导航
-
+                const userName = this.loginForm.loginName;
+                const userCode = this.loginForm.loginPassword;
+                loginParameter.loginParameter(userName, userCode).then(res =>{
+                  debugger
+                  if (res.code == '0000') {
+                    this.$router.replace("/menuPage");
+                  }
+                })
               } else {
                 return false;
               }
-            });*/
+            });
           }
         },
         //监听

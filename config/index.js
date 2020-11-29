@@ -22,7 +22,7 @@ module.exports = {
       },
       //用于生产环境代理
       '/proApi': {  //代理地址
-        target: 'http://192.168.214.1:8091/',  //需要代理的地址
+        target: 'http://192.168.0.110:8091/',  //需要代理的地址
         changeOrigin: true,  //是否跨域
         secure: false,
         pathRewrite: {
@@ -32,7 +32,7 @@ module.exports = {
     },
 
     // Various Dev Server settings
-    host: '192.168.214.1', // can be overwritten by process.env.HOST
+    host: 'localhost', // can be overwritten by process.env.HOST
     port: 10001, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: true,  //自动打开浏览器功能【默认false】
     errorOverlay: true,

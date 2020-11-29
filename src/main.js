@@ -18,6 +18,7 @@ Vue.use(Element);
 //统一全局变量配置
 import GLOBAL from './components/common/util/global'
 Vue.prototype.$GLOBAL = GLOBAL;
+Vue.config.devtools = true
 
 import store from './store/store'//引入store
 

@@ -10,9 +10,12 @@ import {get,post,put,deletePrams,patch} from './../../http'
 export default {
   //登录接口
   loginParameter(userName,userCode){
-    return post(url.login,{
-      userName:userName,
-      userCode:userCode
+    return post(url.login,userName.length == 11 ?{
+      companyPhone:userName,
+      companyPass:userCode
+    } : {
+      companyUserIdCard:userName,
+      companyPass:userCode
     })
   },
 }
